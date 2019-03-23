@@ -33,3 +33,6 @@
 #define COMBO_TERM 200
 // Size of combo_events enum.
 #define COMBO_COUNT 7
+
+// Delay needed for rotary encoder to trigger media keys
+#define TAP_CODE_DELAY 10

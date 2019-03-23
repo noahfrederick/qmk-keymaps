@@ -261,23 +261,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-void encoder_update(bool clockwise) {
+void encoder_update_user(uint8_t index, bool clockwise) {
   if (IS_LAYER_ON(GUI_LAYER)) {
-    if (clockwise) {
-      register_code(KC_MNXT);
-      unregister_code(KC_MNXT);
-    } else {
-      register_code(KC_MPRV);
-      unregister_code(KC_MPRV);
-    }
+    clockwise ? tap_code(KC_MNXT) : tap_code(KC_MPRV);
   } else {
-    if (clockwise) {
-      register_code(KC_VOLU);
-      unregister_code(KC_VOLU);
-    } else {
-      register_code(KC_VOLD);
-      unregister_code(KC_VOLD);
-    }
+    clockwise ? tap_code(KC_VOLU) : tap_code(KC_VOLD);
   }
 }
 
