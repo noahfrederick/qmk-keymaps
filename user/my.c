@@ -326,6 +326,11 @@ const uint16_t PROGMEM combo_lt[] = { KC_L, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_lw[] = { KC_L, KC_W, COMBO_END };
 const uint16_t PROGMEM combo_uy[] = { KC_U, KC_Y, COMBO_END };
 
+const uint16_t PROGMEM combo_zx[] = { KC_Z, KC_X, COMBO_END };
+const uint16_t PROGMEM combo_xc[] = { KC_X, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_cv[] = { KC_C, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_zv[] = { KC_Z, KC_V, COMBO_END };
+
 combo_t key_combos[COMBO_COUNT] = {
   [MY_COMBO_AN] = COMBO_ACTION(combo_an),
   [MY_COMBO_AT] = COMBO_ACTION(combo_at),
@@ -342,6 +347,10 @@ combo_t key_combos[COMBO_COUNT] = {
   [MY_COMBO_LT] = COMBO_ACTION(combo_lt),
   [MY_COMBO_LW] = COMBO_ACTION(combo_lw),
   [MY_COMBO_UY] = COMBO_ACTION(combo_uy),
+  COMBO(combo_zx, KC_CUT),
+  COMBO(combo_xc, KC_COPY),
+  COMBO(combo_cv, KC_PASTE),
+  COMBO(combo_zv, KC_UNDO),
 };
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
