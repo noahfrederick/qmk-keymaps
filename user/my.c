@@ -291,66 +291,130 @@ LEADER_DICT {
 
 #ifdef COMBO_ENABLE
 enum combo_events {
-  MY_COMBO_AND,
-  MY_COMBO_MAK,
-  MY_COMBO_THE,
-  MY_COMBO_TIO,
-  MY_COMBO_WHI,
-  MY_COMBO_WOU,
-  MY_COMBO_YOU,
+  MY_COMBO_AN,
+  MY_COMBO_AT,
+  MY_COMBO_AW,
+  MY_COMBO_CW,
+  MY_COMBO_DL,
+  MY_COMBO_EG,
+  MY_COMBO_EI,
+  MY_COMBO_HT,
+  MY_COMBO_HV,
+  MY_COMBO_IO,
+  MY_COMBO_IT,
+  MY_COMBO_KM,
+  MY_COMBO_LT,
+  MY_COMBO_LW,
+  MY_COMBO_UY,
 };
 
-const uint16_t PROGMEM combo_and[] = { KC_A, KC_N, COMBO_END };
-const uint16_t PROGMEM combo_mak[] = { KC_M, KC_K, COMBO_END };
-const uint16_t PROGMEM combo_the[] = { KC_T, KC_H, COMBO_END };
-const uint16_t PROGMEM combo_tio[] = { KC_I, KC_O, COMBO_END };
-const uint16_t PROGMEM combo_whi[] = { KC_W, KC_C, COMBO_END };
-const uint16_t PROGMEM combo_wou[] = { KC_L, KC_D, COMBO_END };
-const uint16_t PROGMEM combo_you[] = { KC_Y, KC_U, COMBO_END };
+const uint16_t PROGMEM combo_an[] = { KC_A, KC_N, COMBO_END };
+const uint16_t PROGMEM combo_at[] = { KC_A, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_aw[] = { KC_A, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_cw[] = { KC_C, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_dl[] = { KC_D, KC_L, COMBO_END };
+const uint16_t PROGMEM combo_eg[] = { KC_E, KC_G, COMBO_END };
+const uint16_t PROGMEM combo_ei[] = { KC_E, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_ht[] = { KC_H, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_hv[] = { KC_H, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_io[] = { KC_I, KC_O, COMBO_END };
+const uint16_t PROGMEM combo_it[] = { KC_I, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_km[] = { KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM combo_lt[] = { KC_L, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_lw[] = { KC_L, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_uy[] = { KC_U, KC_Y, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
-  [MY_COMBO_AND] = COMBO_ACTION(combo_and),
-  [MY_COMBO_MAK] = COMBO_ACTION(combo_mak),
-  [MY_COMBO_THE] = COMBO_ACTION(combo_the),
-  [MY_COMBO_TIO] = COMBO_ACTION(combo_tio),
-  [MY_COMBO_WHI] = COMBO_ACTION(combo_whi),
-  [MY_COMBO_WOU] = COMBO_ACTION(combo_wou),
-  [MY_COMBO_YOU] = COMBO_ACTION(combo_you),
+  [MY_COMBO_AN] = COMBO_ACTION(combo_an),
+  [MY_COMBO_AT] = COMBO_ACTION(combo_at),
+  [MY_COMBO_AW] = COMBO_ACTION(combo_aw),
+  [MY_COMBO_CW] = COMBO_ACTION(combo_cw),
+  [MY_COMBO_DL] = COMBO_ACTION(combo_dl),
+  [MY_COMBO_EG] = COMBO_ACTION(combo_eg),
+  [MY_COMBO_EI] = COMBO_ACTION(combo_ei),
+  [MY_COMBO_HT] = COMBO_ACTION(combo_ht),
+  [MY_COMBO_HV] = COMBO_ACTION(combo_hv),
+  [MY_COMBO_IO] = COMBO_ACTION(combo_io),
+  [MY_COMBO_IT] = COMBO_ACTION(combo_it),
+  [MY_COMBO_KM] = COMBO_ACTION(combo_km),
+  [MY_COMBO_LT] = COMBO_ACTION(combo_lt),
+  [MY_COMBO_LW] = COMBO_ACTION(combo_lw),
+  [MY_COMBO_UY] = COMBO_ACTION(combo_uy),
 };
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
   switch(combo_index) {
-    case MY_COMBO_AND:
+    case MY_COMBO_AN:
       if (pressed) {
         SEND_STRING("and ");
       }
       break;
-    case MY_COMBO_MAK:
+    case MY_COMBO_AT:
       if (pressed) {
-        SEND_STRING("make ");
+        SEND_STRING("@");
       }
       break;
-    case MY_COMBO_THE:
+    case MY_COMBO_AW:
       if (pressed) {
-        SEND_STRING("the ");
+        SEND_STRING("what ");
       }
       break;
-    case MY_COMBO_TIO:
-      if (pressed) {
-        SEND_STRING("tion ");
-      }
-      break;
-    case MY_COMBO_WHI:
+    case MY_COMBO_CW:
       if (pressed) {
         SEND_STRING("which ");
       }
       break;
-    case MY_COMBO_WOU:
+    case MY_COMBO_DL:
       if (pressed) {
         SEND_STRING("would ");
       }
       break;
-    case MY_COMBO_YOU:
+    case MY_COMBO_EG:
+      if (pressed) {
+        SEND_STRING("e.g., ");
+      }
+      break;
+    case MY_COMBO_EI:
+      if (pressed) {
+        SEND_STRING("i.e., ");
+      }
+      break;
+    case MY_COMBO_HT:
+      if (pressed) {
+        SEND_STRING("the ");
+      }
+      break;
+    case MY_COMBO_HV:
+      if (pressed) {
+        SEND_STRING("have ");
+      }
+      break;
+    case MY_COMBO_IO:
+      if (pressed) {
+        SEND_STRING("tion ");
+      }
+      break;
+    case MY_COMBO_IT:
+      if (pressed) {
+        SEND_STRING("this ");
+      }
+      break;
+    case MY_COMBO_KM:
+      if (pressed) {
+        SEND_STRING("make ");
+      }
+      break;
+    case MY_COMBO_LT:
+      if (pressed) {
+        SEND_STRING("until ");
+      }
+      break;
+    case MY_COMBO_LW:
+      if (pressed) {
+        SEND_STRING("will ");
+      }
+      break;
+    case MY_COMBO_UY:
       if (pressed) {
         SEND_STRING("you ");
       }

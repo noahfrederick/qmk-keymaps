@@ -30,9 +30,9 @@
 #define DYNAMIC_MACRO_SIZE 128
 
 // Combo feature timeout (defaults to TAPPING_TERM)
-#define COMBO_TERM 200
+#define COMBO_TERM 50
 // Size of combo_events enum.
-#define COMBO_COUNT 7
+#define COMBO_COUNT 15
 
 // Delay needed for rotary encoder to trigger media keys
 #define TAP_CODE_DELAY 10
