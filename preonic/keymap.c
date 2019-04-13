@@ -215,7 +215,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, __________MEDIA__________, KC_BRID, KC_SLEP, KC_WAKE, KC_BRIU, __________VOLUME_________, _______
   ),
 
-#ifdef STENO_ENABLE
   /* Stenography layer
    *                 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
    *                 │     │     │     │     │     │     │     │     │     │     │     │     │
@@ -232,11 +231,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [STENO_LAYER] = LAYOUT_preonic_grid_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     KC_TAB,  _________________STENO_L1__________________, _________________STENO_R1___________________________,
-    STN_RES1,_________________STENO_L2__________________, _________________STENO_R2___________________________,
-    STN_RES2,_________________STENO_L3__________________, _________________STENO_R3___________________________,
-    STN_EXIT,XXXXXXX, KC_LALT, KC_LGUI, ____STENO_AO____, ____STENO_EU____, KC_RGUI, KC_RALT, STN_PWR, STN_FN
+    CTL_ESC, _________________STENO_L2__________________, _________________STENO_R2___________________________,
+    XXXXXXX, _________________STENO_L3__________________, _________________STENO_R3___________________________,
+    STN_EXIT,XXXXXXX, KC_LALT, KC_LGUI, ____STENO_AO____, ____STENO_EU____, KC_RGUI, KC_RALT, XXXXXXX, XXXXXXX
   ),
-#endif
 
   /* Keyboard settings layer
    *                 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐

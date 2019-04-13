@@ -19,9 +19,8 @@
 #include "quantum.h"
 #include "version.h"
 
-#ifdef STENO_ENABLE
 #include "keymap_steno.h"
-#endif
+#include "keymap_plover.h"
 
 #ifdef RGB_MATRIX_ENABLE
 #include "rgb_matrix.h"
@@ -167,6 +166,17 @@ enum user_keycodes {
 
 #define ____STENO_AO____ STN_A, STN_O
 #define ____STENO_EU____ STN_E, STN_U
+#else
+#define _________________STENO_L1__________________ PV_NUM,  PV_NUM,  PV_NUM,  PV_NUM,  PV_NUM
+#define _________________STENO_L2__________________ PV_LS,   PV_LT,   PV_LP,   PV_LH,   PV_STAR
+#define _________________STENO_L3__________________ PV_LS,   PV_LK,   PV_LW,   PV_LR,   PV_STAR
+
+#define _________________STENO_R1___________________________ PV_NUM,  PV_NUM,  PV_NUM,  PV_NUM,  PV_NUM,  PV_NUM
+#define _________________STENO_R2___________________________ PV_STAR, PV_RF,   PV_RP,   PV_RL,   PV_RT,   PV_RD
+#define _________________STENO_R3___________________________ PV_STAR, PV_RR,   PV_RB,   PV_RG,   PV_RS,   PV_RZ
+
+#define ____STENO_AO____ PV_A, PV_O
+#define ____STENO_EU____ PV_E, PV_U
 #endif
 
 #define __________VOLUME_________ KC_MUTE, KC_VOLD, KC_VOLU
