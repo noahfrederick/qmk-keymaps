@@ -13,10 +13,11 @@ task default: :install
 
 desc 'Symlink keymap files into QMK source tree'
 task :install do
-  FileUtils.ln_s(File.expand_path('user', __dir__), USER_DIR, verbose: true)
+  FileUtils.ln_s(File.expand_path('user', __dir__), USER_DIR, verbose: true) unless File.exist?(USER_DIR)
 
   KEYBOARDS.each do |keyboard|
-    FileUtils.ln_s(File.expand_path(keyboard, __dir__), keymap_dir(keyboard), verbose: true)
+    dest = keymap_dir(keyboard)
+    FileUtils.ln_s(File.expand_path(keyboard, __dir__), dest, verbose: true) unless File.exist?(dest)
   end
 end
 
