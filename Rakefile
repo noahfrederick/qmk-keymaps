@@ -2,7 +2,7 @@ require 'fileutils'
 
 USERNAME  = 'my'
 KEYBOARDS = ['kbd4x', 'planck', 'preonic']
-QMK_DIR   = "#{ENV['CODE']}/qmk_firmware"
+QMK_DIR   = "#{__dir__}/qmk"
 USER_DIR  = "#{QMK_DIR}/users/#{USERNAME}"
 
 def keymap_dir(keyboard)

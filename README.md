@@ -22,7 +22,7 @@ This is the source code for my keyboard layouts.
 
 ## Building
 
-The `Rakefile` assumes the QMK source is located at `$CODE/qmk_firmware`.
+The `Rakefile` manages the QMK firmware source code:
 
     rake clean      # Remove build artifacts
     rake install    # Symlink keymap files into QMK source tree
