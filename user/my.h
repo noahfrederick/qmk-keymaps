@@ -19,8 +19,11 @@
 #include "quantum.h"
 #include "version.h"
 
+#ifdef STENO_ENABLE
 #include "keymap_steno.h"
+#else
 #include "keymap_plover.h"
+#endif
 
 #ifdef RGB_MATRIX_ENABLE
 #include "rgb_matrix.h"

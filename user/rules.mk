@@ -4,7 +4,6 @@ CONSOLE_ENABLE  = no
 MIDI_ENABLE     = no
 MOUSEKEY_ENABLE = no
 NKRO_ENABLE     = yes
-STENO_ENABLE    = yes  # Be a steno machine
 
 SRC += my.c
 SRC += my_leader.c
