@@ -1,5 +1,8 @@
 # QMK Firmware
 
+[![Software License](https://img.shields.io/github/license/noahfrederick/qmk-keymaps.svg?style=flat-square)](LICENSE.txt)
+[![Build Status](https://img.shields.io/travis/noahfrederick/qmk-keymaps/master.svg?style=flat-square)](https://travis-ci.org/noahfrederick/qmk-keymaps)
+
 The [QMK firmware][qmk] powers my keyboards.
 This is the source code for my keyboard layouts.
 
