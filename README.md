@@ -24,7 +24,9 @@ This is the source code for my keyboard layouts.
 
 The `Rakefile` manages the QMK firmware source code:
 
-    rake clean      # Remove build artifacts
-    rake install    # Symlink keymap files into QMK source tree
-    rake pull       # Update QMK firmware
-    rake uninstall  # Remove symlinks from QMK source tree
+    rake ci           # Build all keymaps for CI
+    rake clean        # Remove build artifacts
+    rake install      # Symlink keymap files into QMK source tree
+    rake qmk:install  # Install QMK dependencies
+    rake qmk:update   # Update QMK firmware
+    rake uninstall    # Remove symlinks from QMK source tree
