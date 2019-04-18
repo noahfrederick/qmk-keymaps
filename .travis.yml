@@ -1,0 +1,21 @@
+os: linux
+dist: trusty
+language: c
+env:
+  global:
+    - MAKEFLAGS="-j3 --output-sync"
+before_install:
+  - wget http://ww1.microchip.com/downloads/en/DeviceDoc/avr8-gnu-toolchain-3.5.4.1709-linux.any.x86_64.tar.gz || wget http://qmk.fm/avr8-gnu-toolchain-3.5.4.1709-linux.any.x86_64.tar.gz
+install:
+  - tar -zxf avr8-gnu-toolchain-3.5.4.1709-linux.any.x86_64.tar.gz
+  - export PATH="$PATH:$TRAVIS_BUILD_DIR/avr8-gnu-toolchain-linux_x86_64/bin"
+script:
+  - rake ci
+addons:
+  apt:
+    packages:
+      - dfu-programmer
+      - gcc-arm-none-eabi
+      - binutils-arm-none-eabi
+      - libnewlib-arm-none-eabi
+      - diffutils

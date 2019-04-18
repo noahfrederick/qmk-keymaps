@@ -39,11 +39,18 @@ task :clean do
   Dir.chdir(QMK_DIR) { sh 'make clean' }
 end
 
-desc 'Update QMK firmware'
-task :pull do
-  Dir.chdir(QMK_DIR) do
-    sh 'git pull --ff-only'
-    sh 'make git-submodule'
+namespace :qmk do
+  desc 'Install QMK dependencies'
+  task :install do
+    Dir.chdir(QMK_DIR) { sh 'util/qmk_install.sh' }
+  end
+
+  desc 'Update QMK firmware'
+  task :update do
+    Dir.chdir(QMK_DIR) do
+      sh 'git pull --ff-only'
+      sh 'make git-submodule'
+    end
   end
 end
 
