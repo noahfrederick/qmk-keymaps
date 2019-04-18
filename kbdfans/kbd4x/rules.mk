@@ -1,1 +1,1 @@
-STENO_ENABLE = no
+COMBO_ENABLE = yes
