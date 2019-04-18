@@ -1,3 +1,6 @@
-BACKLIGHT_ENABLE = no   # Keyboard backlight functionality
-AUDIO_ENABLE     = yes  # Audio output on port C6
-STENO_ENABLE     = yes
+ifeq ($(strip $(KEYBOARD)), planck/light)
+  STENO_ENABLE = yes
+  COMBO_ENABLE = yes
+else
+  BACKLIGHT_ENABLE = yes
+endif
