@@ -15,7 +15,9 @@
  */
 
 #include "my_leader.h"
+#ifdef PRIVATE_MACROS
 #include "private.h"
+#endif
 
 LEADER_DICT {
   LEADER(KC_H, KC_A) {

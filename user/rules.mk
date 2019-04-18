@@ -11,3 +11,7 @@ SRC += my_leader_dictionary.c
 ifeq ($(strip $(COMBO_ENABLE)), yes)
   SRC += my_combos.c
 endif
+
+ifneq ("$(wildcard $(USER_PATH)/private.h)", "")
+  OPT_DEFS += -DPRIVATE_MACROS
+endif
