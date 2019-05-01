@@ -23,7 +23,13 @@ float plover_song[][2]    = SONG(PLOVER_SOUND);
 float plover_gb_song[][2] = SONG(PLOVER_GOODBYE_SOUND);
 #endif
 
-void matrix_init_user() {
+void eeconfig_init_user(void) {
+#if defined(UNICODE_ENABLE) || defined(UNICODEMAP_ENABLE) || defined(UCIS_ENABLE)
+  set_unicode_input_mode(UC_LNX);
+#endif
+}
+
+void matrix_init_user(void) {
 #ifdef STENO_ENABLE
   steno_set_mode(STENO_MODE_GEMINI);
 #endif
