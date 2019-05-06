@@ -17,7 +17,11 @@
 #include "my.h"
 
 enum combo_events {
+  MY_COMBO_SLSH_F,
+  MY_COMBO_SLSH_H,
+  MY_COMBO_SLSH_S,
   MY_COMBO_AB,
+  MY_COMBO_AK,
   MY_COMBO_AN,
   MY_COMBO_AT,
   MY_COMBO_AW,
@@ -40,7 +44,11 @@ enum combo_events {
   MY_COMBO_UY,
 };
 
+const uint16_t PROGMEM combo_slsh_f[] = { KC_SLSH, KC_F, COMBO_END };
+const uint16_t PROGMEM combo_slsh_h[] = { KC_SLSH, KC_H, COMBO_END };
+const uint16_t PROGMEM combo_slsh_s[] = { KC_SLSH, KC_S, COMBO_END };
 const uint16_t PROGMEM combo_ab[] = { KC_A, KC_B, COMBO_END };
+const uint16_t PROGMEM combo_ak[] = { KC_A, KC_K, COMBO_END };
 const uint16_t PROGMEM combo_an[] = { KC_A, KC_N, COMBO_END };
 const uint16_t PROGMEM combo_at[] = { KC_A, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_aw[] = { KC_A, KC_W, COMBO_END };
@@ -68,7 +76,11 @@ const uint16_t PROGMEM combo_cv[] = { KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM combo_zv[] = { KC_Z, KC_V, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
+  [MY_COMBO_SLSH_F] = COMBO_ACTION(combo_slsh_f),
+  [MY_COMBO_SLSH_H] = COMBO_ACTION(combo_slsh_h),
+  [MY_COMBO_SLSH_S] = COMBO_ACTION(combo_slsh_s),
   [MY_COMBO_AB] = COMBO_ACTION(combo_ab),
+  [MY_COMBO_AK] = COMBO_ACTION(combo_ak),
   [MY_COMBO_AN] = COMBO_ACTION(combo_an),
   [MY_COMBO_AT] = COMBO_ACTION(combo_at),
   [MY_COMBO_AW] = COMBO_ACTION(combo_aw),
@@ -97,9 +109,29 @@ combo_t key_combos[COMBO_COUNT] = {
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
   switch(combo_index) {
+    case MY_COMBO_SLSH_F:
+      if (pressed) {
+        SEND_STRING("ftp://");
+      }
+      break;
+    case MY_COMBO_SLSH_H:
+      if (pressed) {
+        SEND_STRING("http://");
+      }
+      break;
+    case MY_COMBO_SLSH_S:
+      if (pressed) {
+        SEND_STRING("https://");
+      }
+      break;
     case MY_COMBO_AB:
       if (pressed) {
         SEND_STRING("about ");
+      }
+      break;
+    case MY_COMBO_AK:
+      if (pressed) {
+        SEND_STRING("a.k.a. ");
       }
       break;
     case MY_COMBO_AN:
