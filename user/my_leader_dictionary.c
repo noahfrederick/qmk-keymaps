@@ -70,6 +70,13 @@ LEADER_DICT {
     return leader_terminate();
   }
 
+#ifdef UCIS_ENABLE
+  LEADER(KC_J) {
+    qk_ucis_start();
+    return leader_terminate();
+  }
+#endif
+
   LEADER(KC_SPC, KC_SPC) {
     layer_off(CAMEL_LAYER);
     layer_off(KEBAB_LAYER);

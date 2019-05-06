@@ -12,6 +12,10 @@ ifeq ($(strip $(COMBO_ENABLE)), yes)
   SRC += my_combos.c
 endif
 
+ifeq ($(strip $(UCIS_ENABLE)), yes)
+  SRC += my_unicode_dictionary.c
+endif
+
 ifneq ("$(wildcard $(USER_PATH)/private.h)", "")
   OPT_DEFS += -DPRIVATE_MACROS
 endif
