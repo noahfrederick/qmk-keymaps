@@ -16,7 +16,6 @@
 
 #include "my.h"
 #include "my_leader.h"
-#include "dynamic_macro.h"
 
 #ifdef AUDIO_ENABLE
 float plover_song[][2]    = SONG(PLOVER_SOUND);
@@ -46,10 +45,6 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_record_dynamic_macro(keycode, record)) {
-    return false;
-  }
-
 #ifdef COMBO_ENABLE
   if (!process_leader(keycode, record)) {
     return false;

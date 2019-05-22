@@ -51,11 +51,8 @@ enum user_keycodes {
   STN_EXIT,
   SEND_MAKE,
   SEND_VERSION,
-  DYNAMIC_MACRO_RANGE
+  NEW_SAFE_RANGE
 };
-
-// Dynamic macros add additional keycodes.
-#define NEW_SAFE_RANGE (DYNAMIC_MACRO_PLAY2 + 1)
 
 #define LOWER MO(LOWER_LAYER)
 #define RAISE MO(RAISE_LAYER)
