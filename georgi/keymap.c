@@ -211,19 +211,19 @@ uint32_t processQwerty(bool lookup) {
 	P( LFT,					SEND(KC_W));
 	P( LP,					SEND(KC_F));
 	P( LH,					SEND(KC_P));
-	P( ST1,					SEND(KC_B));
+	P( ST1,					SEND(KC_G));
 
 	P( LSU | LSD,			SEND(KC_A));
 	P( LFT | LK,			SEND(KC_R));
 	P( LP  | LW,			SEND(KC_S));
 	P( LH  | LR,			SEND(KC_T));
-	P( ST1 | ST2,			SEND(KC_G));
+	P( ST1 | ST2,			SEND(KC_D));
 
 	P( LSD,					SEND(KC_Z));
 	P( LK,					SEND(KC_X));
 	P( LW,					SEND(KC_C));
-	P( LR,					SEND(KC_D));
-	P( ST2,					SEND(KC_V));
+	P( LR,					SEND(KC_V));
+	P( ST2,					SEND(KC_B));
 
 	// Right hand
 	P( ST3,					SEND(KC_J));
@@ -232,14 +232,14 @@ uint32_t processQwerty(bool lookup) {
 	P( RL,					SEND(KC_Y));
 	P( RT,					SEND(KC_SCLN));
 
-	P( ST3 | ST4,			SEND(KC_M));
+	P( ST3 | ST4,			SEND(KC_H));
 	P( RF  | RR,			SEND(KC_N));
 	P( RP  | RB,			SEND(KC_E));
 	P( RG  | RL,			SEND(KC_I));
 	P( RT  | RS,			SEND(KC_O));
 
 	P( ST4,					SEND(KC_K));
-	P( RR,					SEND(KC_H));
+	P( RR,					SEND(KC_M));
 	P( RB,					SEND(KC_COMM));
 	P( RG,					SEND(KC_DOT));
 	P( RS,					SEND(KC_SLSH));
