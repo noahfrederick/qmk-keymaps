@@ -15,7 +15,6 @@ addons:
   apt:
     packages:
       - dfu-programmer
-      - dfu-util
       - gcc-arm-none-eabi
       - binutils-arm-none-eabi
       - libnewlib-arm-none-eabi
