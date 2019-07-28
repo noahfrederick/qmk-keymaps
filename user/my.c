@@ -50,9 +50,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
+#ifdef COMBO_ENABLE
   if (!process_leader(keycode, record)) {
     return false;
   }
+#endif
 
   if (!process_record_keymap(keycode, record)) {
     return false;

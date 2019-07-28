@@ -25,6 +25,16 @@ uint8_t leader_sequence_size = 0;
 float leader_cancel_tone[][2] = SONG(TERMINAL_SOUND);
 #endif
 
+bool leader_activate_or_cancel(void) {
+  if (leading) {
+    return leader_cancel();
+  }
+
+  leading = true;
+
+  return true;
+}
+
 bool leader_terminate(void) {
   leading = false;
   leader_sequence_size = 0;
@@ -50,19 +60,7 @@ bool leader_dictionary(void) {
 }
 
 bool process_leader(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    if (keycode == LEADER) {
-      if (leading) {
-        leader_cancel();
-      } else {
-        leading = true;
-      }
-
-      return false;
-    } else if (!leading) {
-      return true;
-    }
-
+  if (leading && record->event.pressed) {
     if ((leader_sequence_size + 1) > LEADER_MAX_SIZE) {
       return leader_cancel();
     }

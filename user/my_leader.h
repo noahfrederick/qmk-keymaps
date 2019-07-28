@@ -37,6 +37,7 @@
   bool leader_dictionary(void)
 
 bool process_leader(uint16_t keycode, keyrecord_t *record);
+bool leader_activate_or_cancel(void);
 bool leader_dictionary(void);
 bool leader_terminate(void);
 bool leader_cancel(void);

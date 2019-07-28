@@ -5,11 +5,11 @@ MOUSEKEY_ENABLE = no
 NKRO_ENABLE     = yes
 
 SRC += my.c
-SRC += my_leader.c
-SRC += my_leader_dictionary.c
 
 ifeq ($(strip $(COMBO_ENABLE)), yes)
   SRC += my_combos.c
+  SRC += my_leader.c
+  SRC += my_leader_dictionary.c
 endif
 
 ifeq ($(strip $(UCIS_ENABLE)), yes)
