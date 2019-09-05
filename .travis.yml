@@ -17,6 +17,5 @@ addons:
       - binutils-avr
       - dfu-programmer
       - dfu-util
-      - gcc
       - gcc-avr
       - libnewlib-arm-none-eabi
