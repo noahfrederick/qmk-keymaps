@@ -14,9 +14,12 @@ addons:
   apt:
     packages:
       - avr-libc
+      - avrdude
       - binutils-arm-none-eabi
       - binutils-avr
+      - build-essential
       - dfu-programmer
       - diffutils
+      - gcc
       - gcc-avr
       - libnewlib-arm-none-eabi
