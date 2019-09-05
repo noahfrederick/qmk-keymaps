@@ -13,13 +13,10 @@ addons:
   apt:
     packages:
       - avr-libc
-      - avrdude
       - binutils-arm-none-eabi
       - binutils-avr
-      - build-essential
       - dfu-programmer
       - dfu-util
-      - diffutils
       - gcc
       - gcc-avr
       - libnewlib-arm-none-eabi
