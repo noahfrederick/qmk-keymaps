@@ -3,10 +3,6 @@ language: c
 env:
   global:
     - MAKEFLAGS="-j3 --output-sync"
-before_install:
-  - wget -q https://developer.arm.com/-/media/Files/downloads/gnu-rm/6-2017q2/gcc-arm-none-eabi-6-2017-q2-update-linux.tar.bz2 -O - | tar xj
-install:
-  - export PATH="$PATH:$TRAVIS_BUILD_DIR/gcc-arm-none-eabi-6-2017-q2-update/bin"
 script:
   - rake ci
 addons:
@@ -18,4 +14,5 @@ addons:
       - dfu-programmer
       - dfu-util
       - gcc-avr
+      - gcc-arm-none-eabi
       - libnewlib-arm-none-eabi
