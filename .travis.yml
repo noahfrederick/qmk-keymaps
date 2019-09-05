@@ -1,5 +1,6 @@
 os: linux
 dist: trusty
+group: edge
 language: c
 env:
   global:
