@@ -18,6 +18,7 @@ addons:
       - binutils-avr
       - build-essential
       - dfu-programmer
+      - dfu-util
       - diffutils
       - gcc
       - gcc-avr
