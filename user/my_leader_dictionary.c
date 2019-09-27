@@ -115,6 +115,11 @@ LEADER_DICT {
     return leader_terminate();
   }
 
+  LEADER(KC_D, KC_S) {
+    SEND_STRING(PRIVATE_DOMAIN_SHORT);
+    return leader_terminate();
+  }
+
   LEADER(KC_D, KC_W) {
     SEND_STRING(PRIVATE_DOMAIN_WORK);
     return leader_terminate();
