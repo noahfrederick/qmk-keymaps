@@ -18,11 +18,20 @@
 #include "my_leader.h"
 
 enum combo_events {
+  MY_COMBO_QUOT_C,
+  MY_COMBO_QUOT_D,
+  MY_COMBO_QUOT_H,
+  MY_COMBO_QUOT_R,
+  MY_COMBO_QUOT_S,
+  MY_COMBO_QUOT_T,
+  MY_COMBO_QUOT_W,
+  MY_COMBO_QUOT_Y,
   MY_COMBO_SLSH_F,
   MY_COMBO_SLSH_H,
   MY_COMBO_SLSH_S,
   MY_COMBO_AB,
   MY_COMBO_AK,
+  MY_COMBO_AM,
   MY_COMBO_AN,
   MY_COMBO_AT,
   MY_COMBO_AW,
@@ -41,6 +50,7 @@ enum combo_events {
   MY_COMBO_LW,
   MY_COMBO_MT,
   MY_COMBO_NT,
+  MY_COMBO_OW,
   MY_COMBO_RU,
   MY_COMBO_RY,
   MY_COMBO_UY,
@@ -49,8 +59,17 @@ enum combo_events {
 const uint16_t PROGMEM combo_slsh_f[] = { KC_SLSH, KC_F, COMBO_END };
 const uint16_t PROGMEM combo_slsh_h[] = { KC_SLSH, KC_H, COMBO_END };
 const uint16_t PROGMEM combo_slsh_s[] = { KC_SLSH, KC_S, COMBO_END };
+const uint16_t PROGMEM combo_quot_c[] = { KC_QUOT, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_quot_d[] = { KC_QUOT, KC_D, COMBO_END };
+const uint16_t PROGMEM combo_quot_h[] = { KC_QUOT, KC_H, COMBO_END };
+const uint16_t PROGMEM combo_quot_r[] = { KC_QUOT, KC_R, COMBO_END };
+const uint16_t PROGMEM combo_quot_s[] = { KC_QUOT, KC_S, COMBO_END };
+const uint16_t PROGMEM combo_quot_t[] = { KC_QUOT, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_quot_w[] = { KC_QUOT, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_quot_y[] = { KC_QUOT, KC_Y, COMBO_END };
 const uint16_t PROGMEM combo_ab[] = { KC_A, KC_B, COMBO_END };
 const uint16_t PROGMEM combo_ak[] = { KC_A, KC_K, COMBO_END };
+const uint16_t PROGMEM combo_am[] = { KC_A, KC_M, COMBO_END };
 const uint16_t PROGMEM combo_an[] = { KC_A, KC_N, COMBO_END };
 const uint16_t PROGMEM combo_at[] = { KC_A, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_aw[] = { KC_A, KC_W, COMBO_END };
@@ -69,6 +88,7 @@ const uint16_t PROGMEM combo_lt[] = { KC_L, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_lw[] = { KC_L, KC_W, COMBO_END };
 const uint16_t PROGMEM combo_mt[] = { KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_nt[] = { KC_N, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_ow[] = { KC_O, KC_W, COMBO_END };
 const uint16_t PROGMEM combo_ru[] = { KC_R, KC_U, COMBO_END };
 const uint16_t PROGMEM combo_ry[] = { KC_R, KC_Y, COMBO_END };
 const uint16_t PROGMEM combo_uy[] = { KC_U, KC_Y, COMBO_END };
@@ -79,11 +99,20 @@ const uint16_t PROGMEM combo_cv[] = { KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM combo_zv[] = { KC_Z, KC_V, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
+  [MY_COMBO_QUOT_C] = COMBO_ACTION(combo_quot_c),
+  [MY_COMBO_QUOT_D] = COMBO_ACTION(combo_quot_d),
+  [MY_COMBO_QUOT_H] = COMBO_ACTION(combo_quot_h),
+  [MY_COMBO_QUOT_R] = COMBO_ACTION(combo_quot_r),
+  [MY_COMBO_QUOT_S] = COMBO_ACTION(combo_quot_s),
+  [MY_COMBO_QUOT_T] = COMBO_ACTION(combo_quot_t),
+  [MY_COMBO_QUOT_W] = COMBO_ACTION(combo_quot_w),
+  [MY_COMBO_QUOT_Y] = COMBO_ACTION(combo_quot_y),
   [MY_COMBO_SLSH_F] = COMBO_ACTION(combo_slsh_f),
   [MY_COMBO_SLSH_H] = COMBO_ACTION(combo_slsh_h),
   [MY_COMBO_SLSH_S] = COMBO_ACTION(combo_slsh_s),
   [MY_COMBO_AB] = COMBO_ACTION(combo_ab),
   [MY_COMBO_AK] = COMBO_ACTION(combo_ak),
+  [MY_COMBO_AM] = COMBO_ACTION(combo_am),
   [MY_COMBO_AN] = COMBO_ACTION(combo_an),
   [MY_COMBO_AT] = COMBO_ACTION(combo_at),
   [MY_COMBO_AW] = COMBO_ACTION(combo_aw),
@@ -102,6 +131,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [MY_COMBO_LW] = COMBO_ACTION(combo_lw),
   [MY_COMBO_MT] = COMBO_ACTION(combo_mt),
   [MY_COMBO_NT] = COMBO_ACTION(combo_nt),
+  [MY_COMBO_OW] = COMBO_ACTION(combo_ow),
   [MY_COMBO_RU] = COMBO_ACTION(combo_ru),
   [MY_COMBO_RY] = COMBO_ACTION(combo_ry),
   [MY_COMBO_UY] = COMBO_ACTION(combo_uy),
@@ -111,26 +141,74 @@ combo_t key_combos[COMBO_COUNT] = {
   COMBO(combo_zv, KC_UNDO),
 };
 
+#define MODS_SHIFT (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
+#define SEND_CAP_STRING(str, capitalized) if (MODS_SHIFT) { \
+                                            clear_mods(); \
+                                            SEND_STRING(capitalized); \
+                                          } else { \
+                                            SEND_STRING(str); \
+                                          }
+
 void process_combo_event(uint8_t combo_index, bool pressed) {
   switch(combo_index) {
+    case MY_COMBO_QUOT_C:
+      if (pressed) {
+        SEND_CAP_STRING("can't ", "Can't ");
+      }
+      break;
+    case MY_COMBO_QUOT_D:
+      if (pressed) {
+        SEND_CAP_STRING("don't ", "Don't ");
+      }
+      break;
+    case MY_COMBO_QUOT_H:
+      if (pressed) {
+        SEND_CAP_STRING("hasn't ", "Hasn't ");
+      }
+      break;
+    case MY_COMBO_QUOT_R:
+      if (pressed) {
+        SEND_CAP_STRING("aren't ", "Aren't ");
+      }
+      break;
+    case MY_COMBO_QUOT_S:
+      if (pressed) {
+        SEND_CAP_STRING("isn't ", "Isn't ");
+      }
+      break;
+    case MY_COMBO_QUOT_T:
+      if (pressed) {
+        SEND_CAP_STRING("it's ", "It's ");
+      }
+      break;
+    case MY_COMBO_QUOT_W:
+      if (pressed) {
+        SEND_CAP_STRING("won't ", "Won't ");
+      }
+      break;
+    case MY_COMBO_QUOT_Y:
+      if (pressed) {
+        SEND_CAP_STRING("you're ", "You're ");
+      }
+      break;
     case MY_COMBO_SLSH_F:
       if (pressed) {
-        SEND_STRING("ftp://");
+        SEND_CAP_STRING("ftp://", "FTP ");
       }
       break;
     case MY_COMBO_SLSH_H:
       if (pressed) {
-        SEND_STRING("http://");
+        SEND_CAP_STRING("http://", "HTTP ");
       }
       break;
     case MY_COMBO_SLSH_S:
       if (pressed) {
-        SEND_STRING("https://");
+        SEND_CAP_STRING("https://", "HTTPS ");
       }
       break;
     case MY_COMBO_AB:
       if (pressed) {
-        SEND_STRING("about ");
+        SEND_CAP_STRING("about ", "About ");
       }
       break;
     case MY_COMBO_AK:
@@ -138,9 +216,14 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
         SEND_STRING("a.k.a. ");
       }
       break;
+    case MY_COMBO_AM:
+      if (pressed) {
+        SEND_STRING("&");
+      }
+      break;
     case MY_COMBO_AN:
       if (pressed) {
-        SEND_STRING("and ");
+        SEND_CAP_STRING("and ", "And ");
       }
       break;
     case MY_COMBO_AT:
@@ -150,22 +233,22 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
       break;
     case MY_COMBO_AW:
       if (pressed) {
-        SEND_STRING("what ");
+        SEND_CAP_STRING("what ", "What ");
       }
       break;
     case MY_COMBO_BC:
       if (pressed) {
-        SEND_STRING("because ");
+        SEND_CAP_STRING("because ", "Because ");
       }
       break;
     case MY_COMBO_CW:
       if (pressed) {
-        SEND_STRING("which ");
+        SEND_CAP_STRING("which ", "Which ");
       }
       break;
     case MY_COMBO_DL:
       if (pressed) {
-        SEND_STRING("would ");
+        SEND_CAP_STRING("would ", "Would ");
       }
       break;
     case MY_COMBO_EG:
@@ -180,12 +263,12 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
       break;
     case MY_COMBO_HT:
       if (pressed) {
-        SEND_STRING("the ");
+        SEND_CAP_STRING("the ", "The ");
       }
       break;
     case MY_COMBO_HV:
       if (pressed) {
-        SEND_STRING("have ");
+        SEND_CAP_STRING("have ", "Have ");
       }
       break;
     case MY_COMBO_IO:
@@ -195,27 +278,27 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
       break;
     case MY_COMBO_IT:
       if (pressed) {
-        SEND_STRING("this ");
+        SEND_CAP_STRING("this ", "This ");
       }
       break;
     case MY_COMBO_IW:
       if (pressed) {
-        SEND_STRING("with ");
+        SEND_CAP_STRING("with ", "With ");
       }
       break;
     case MY_COMBO_KM:
       if (pressed) {
-        SEND_STRING("make ");
+        SEND_CAP_STRING("make ", "Make ");
       }
       break;
     case MY_COMBO_LT:
       if (pressed) {
-        SEND_STRING("until ");
+        SEND_CAP_STRING("until ", "Until ");
       }
       break;
     case MY_COMBO_LW:
       if (pressed) {
-        SEND_STRING("will ");
+        SEND_CAP_STRING("will ", "Will ");
       }
       break;
     case MY_COMBO_MT:
@@ -228,19 +311,24 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
         leader_activate_or_cancel();
       }
       break;
+    case MY_COMBO_OW:
+      if (pressed) {
+        SEND_CAP_STRING("without ", "Without ");
+      }
+      break;
     case MY_COMBO_RU:
       if (pressed) {
-        SEND_STRING("you're ");
+        SEND_CAP_STRING("you're ", "You're ");
       }
       break;
     case MY_COMBO_RY:
       if (pressed) {
-        SEND_STRING("your ");
+        SEND_CAP_STRING("your ", "Your ");
       }
       break;
     case MY_COMBO_UY:
       if (pressed) {
-        SEND_STRING("you ");
+        SEND_CAP_STRING("you ", "You ");
       }
       break;
   }
