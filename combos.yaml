@@ -1,0 +1,145 @@
+---
+- keys: [KC_QUOT, KC_C]
+  action: |
+    SEND_CAP_STRING("can't ", "Can't ");
+- keys: [KC_QUOT, KC_D]
+  action: |
+    SEND_CAP_STRING("don't ", "Don't ");
+- keys: [KC_QUOT, KC_H]
+  action: |
+    SEND_CAP_STRING("hasn't ", "Hasn't ");
+- keys: [KC_QUOT, KC_R]
+  action: |
+    SEND_CAP_STRING("aren't ", "Aren't ");
+- keys: [KC_QUOT, KC_S]
+  action: |
+    SEND_CAP_STRING("isn't ", "Isn't ");
+- keys: [KC_QUOT, KC_T]
+  action: |
+    SEND_CAP_STRING("it's ", "It's ");
+- keys: [KC_QUOT, KC_W]
+  action: |
+    SEND_CAP_STRING("won't ", "Won't ");
+- keys: [KC_QUOT, KC_Y]
+  action: |
+    SEND_CAP_STRING("you're ", "You're ");
+- keys: [KC_SLSH, KC_F]
+  action: |
+    SEND_CAP_STRING("ftp://", "FTP ");
+- keys: [KC_SLSH, KC_H]
+  action: |
+    SEND_CAP_STRING("http://", "HTTP ");
+- keys: [KC_SLSH, KC_S]
+  action: |
+    SEND_CAP_STRING("https://", "HTTPS ");
+- keys: [KC_TAB, KC_B]
+  action: |
+    // Markdown strong emphasis/bold
+    SEND_STRING("****" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+- keys: [KC_TAB, KC_C]
+  action: |
+    // Markdown list item with checkbox
+    SEND_STRING("- [ ] ");
+- keys: [KC_TAB, KC_D]
+  action: |
+    // Markdown deletion
+    SEND_STRING("~~~~" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+- keys: [KC_TAB, KC_G]
+  action: |
+    // Markdown image
+    SEND_STRING("![]()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+- keys: [KC_TAB, KC_I]
+  action: |
+    // Markdown emphasis/italic
+    SEND_STRING("**" SS_TAP(X_LEFT));
+- keys: [KC_TAB, KC_L]
+  action: |
+    // Markdown link
+    SEND_STRING("[]()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+- keys: [KC_TAB, KC_U]
+  action: |
+    // Markdown emphasis/italic
+    SEND_STRING("__" SS_TAP(X_LEFT));
+- keys: [KC_A, KC_B]
+  action: |
+    SEND_CAP_STRING("about ", "About ");
+- keys: [KC_A, KC_K]
+  action: |
+    SEND_STRING("a.k.a. ");
+- keys: [KC_A, KC_M]
+  action: |
+    SEND_STRING("&");
+- keys: [KC_A, KC_N]
+  action: |
+    SEND_CAP_STRING("and ", "And ");
+- keys: [KC_A, KC_T]
+  action: |
+    SEND_STRING("@");
+- keys: [KC_A, KC_W]
+  action: |
+    SEND_CAP_STRING("what ", "What ");
+- keys: [KC_B, KC_C]
+  action: |
+    SEND_CAP_STRING("because ", "Because ");
+- keys: [KC_C, KC_W]
+  action: |
+    SEND_CAP_STRING("which ", "Which ");
+- keys: [KC_D, KC_L]
+  action: |
+    SEND_CAP_STRING("would ", "Would ");
+- keys: [KC_E, KC_G]
+  action: |
+    SEND_STRING("e.g., ");
+- keys: [KC_E, KC_I]
+  action: |
+    SEND_STRING("i.e., ");
+- keys: [KC_H, KC_T]
+  action: |
+    SEND_CAP_STRING("the ", "The ");
+- keys: [KC_H, KC_V]
+  action: |
+    SEND_CAP_STRING("have ", "Have ");
+- keys: [KC_I, KC_O]
+  action: |
+    SEND_STRING("tion "); // Suffix
+- keys: [KC_I, KC_T]
+  action: |
+    SEND_CAP_STRING("this ", "This ");
+- keys: [KC_I, KC_W]
+  action: |
+    SEND_CAP_STRING("with ", "With ");
+- keys: [KC_K, KC_M]
+  action: |
+    SEND_CAP_STRING("make ", "Make ");
+- keys: [KC_L, KC_T]
+  action: |
+    SEND_CAP_STRING("until ", "Until ");
+- keys: [KC_L, KC_W]
+  action: |
+    SEND_CAP_STRING("will ", "Will ");
+- keys: [KC_M, KC_T]
+  action: |
+    SEND_STRING("ment "); // Suffix
+- keys: [KC_N, KC_T]
+  action: |
+    leader_activate_or_cancel();
+- keys: [KC_O, KC_W]
+  action: |
+    SEND_CAP_STRING("without ", "Without ");
+- keys: [KC_R, KC_U]
+  action: |
+    SEND_CAP_STRING("you're ", "You're ");
+- keys: [KC_R, KC_Y]
+  action: |
+    SEND_CAP_STRING("your ", "Your ");
+- keys: [KC_U, KC_Y]
+  action: |
+    SEND_CAP_STRING("you ", "You ");
+- keys: [KC_Z, KC_X]
+  action: KC_CUT
+- keys: [KC_X, KC_C]
+  action: KC_COPY
+- keys: [KC_C, KC_V]
+  action: KC_PASTE
+- keys: [KC_Z, KC_V]
+  action: KC_UNDO

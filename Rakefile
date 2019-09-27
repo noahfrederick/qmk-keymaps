@@ -66,3 +66,46 @@ task ci: :install do
     end
   end
 end
+
+class Combo
+  attr_accessor :keys, :action
+
+  def initialize(keys, action)
+    @keys = keys
+    @action = action
+  end
+
+  def keys_slug
+    @keys.collect {|key| key.sub(/^KC_/, '')}.join('_')
+  end
+
+  def constant_name
+    "MY_COMBO_#{keys_slug}"
+  end
+
+  def array_name
+    "combo_#{keys_slug}"
+  end
+
+  def simple?
+    @action =~ /^\w+$/
+  end
+
+  def complex?
+    !simple?
+  end
+end
+
+desc 'Regenerate generated C files'
+task :generate do
+  require 'erb'
+  require 'yaml'
+
+  combos = YAML.load_file('combos.yaml').collect do |combo|
+    Combo.new(combo['keys'], combo['action'])
+  end
+
+  Dir.glob('**/*.erb') do |path|
+    File.write(path.sub(/\.erb$/, ''), ERB.new(File.read(path)).result(binding))
+  end
+end

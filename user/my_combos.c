@@ -36,130 +36,129 @@ enum combo_events {
   MY_COMBO_TAB_I,
   MY_COMBO_TAB_L,
   MY_COMBO_TAB_U,
-  MY_COMBO_AB,
-  MY_COMBO_AK,
-  MY_COMBO_AM,
-  MY_COMBO_AN,
-  MY_COMBO_AT,
-  MY_COMBO_AW,
-  MY_COMBO_BC,
-  MY_COMBO_CW,
-  MY_COMBO_DL,
-  MY_COMBO_EG,
-  MY_COMBO_EI,
-  MY_COMBO_HT,
-  MY_COMBO_HV,
-  MY_COMBO_IO,
-  MY_COMBO_IT,
-  MY_COMBO_IW,
-  MY_COMBO_KM,
-  MY_COMBO_LT,
-  MY_COMBO_LW,
-  MY_COMBO_MT,
-  MY_COMBO_NT,
-  MY_COMBO_OW,
-  MY_COMBO_RU,
-  MY_COMBO_RY,
-  MY_COMBO_UY,
+  MY_COMBO_A_B,
+  MY_COMBO_A_K,
+  MY_COMBO_A_M,
+  MY_COMBO_A_N,
+  MY_COMBO_A_T,
+  MY_COMBO_A_W,
+  MY_COMBO_B_C,
+  MY_COMBO_C_W,
+  MY_COMBO_D_L,
+  MY_COMBO_E_G,
+  MY_COMBO_E_I,
+  MY_COMBO_H_T,
+  MY_COMBO_H_V,
+  MY_COMBO_I_O,
+  MY_COMBO_I_T,
+  MY_COMBO_I_W,
+  MY_COMBO_K_M,
+  MY_COMBO_L_T,
+  MY_COMBO_L_W,
+  MY_COMBO_M_T,
+  MY_COMBO_N_T,
+  MY_COMBO_O_W,
+  MY_COMBO_R_U,
+  MY_COMBO_R_Y,
+  MY_COMBO_U_Y,
 };
 
-const uint16_t PROGMEM combo_slsh_f[] = { KC_SLSH, KC_F, COMBO_END };
-const uint16_t PROGMEM combo_slsh_h[] = { KC_SLSH, KC_H, COMBO_END };
-const uint16_t PROGMEM combo_slsh_s[] = { KC_SLSH, KC_S, COMBO_END };
-const uint16_t PROGMEM combo_quot_c[] = { KC_QUOT, KC_C, COMBO_END };
-const uint16_t PROGMEM combo_quot_d[] = { KC_QUOT, KC_D, COMBO_END };
-const uint16_t PROGMEM combo_quot_h[] = { KC_QUOT, KC_H, COMBO_END };
-const uint16_t PROGMEM combo_quot_r[] = { KC_QUOT, KC_R, COMBO_END };
-const uint16_t PROGMEM combo_quot_s[] = { KC_QUOT, KC_S, COMBO_END };
-const uint16_t PROGMEM combo_quot_t[] = { KC_QUOT, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_quot_w[] = { KC_QUOT, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_quot_y[] = { KC_QUOT, KC_Y, COMBO_END };
-const uint16_t PROGMEM combo_tab_b[] = { KC_TAB, KC_B, COMBO_END };
-const uint16_t PROGMEM combo_tab_c[] = { KC_TAB, KC_C, COMBO_END };
-const uint16_t PROGMEM combo_tab_d[] = { KC_TAB, KC_D, COMBO_END };
-const uint16_t PROGMEM combo_tab_g[] = { KC_TAB, KC_G, COMBO_END };
-const uint16_t PROGMEM combo_tab_i[] = { KC_TAB, KC_I, COMBO_END };
-const uint16_t PROGMEM combo_tab_l[] = { KC_TAB, KC_L, COMBO_END };
-const uint16_t PROGMEM combo_tab_u[] = { KC_TAB, KC_U, COMBO_END };
-const uint16_t PROGMEM combo_ab[] = { KC_A, KC_B, COMBO_END };
-const uint16_t PROGMEM combo_ak[] = { KC_A, KC_K, COMBO_END };
-const uint16_t PROGMEM combo_am[] = { KC_A, KC_M, COMBO_END };
-const uint16_t PROGMEM combo_an[] = { KC_A, KC_N, COMBO_END };
-const uint16_t PROGMEM combo_at[] = { KC_A, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_aw[] = { KC_A, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_bc[] = { KC_B, KC_C, COMBO_END };
-const uint16_t PROGMEM combo_cw[] = { KC_C, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_dl[] = { KC_D, KC_L, COMBO_END };
-const uint16_t PROGMEM combo_eg[] = { KC_E, KC_G, COMBO_END };
-const uint16_t PROGMEM combo_ei[] = { KC_E, KC_I, COMBO_END };
-const uint16_t PROGMEM combo_ht[] = { KC_H, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_hv[] = { KC_H, KC_V, COMBO_END };
-const uint16_t PROGMEM combo_io[] = { KC_I, KC_O, COMBO_END };
-const uint16_t PROGMEM combo_it[] = { KC_I, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_iw[] = { KC_I, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_km[] = { KC_K, KC_M, COMBO_END };
-const uint16_t PROGMEM combo_lt[] = { KC_L, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_lw[] = { KC_L, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_mt[] = { KC_M, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_nt[] = { KC_N, KC_T, COMBO_END };
-const uint16_t PROGMEM combo_ow[] = { KC_O, KC_W, COMBO_END };
-const uint16_t PROGMEM combo_ru[] = { KC_R, KC_U, COMBO_END };
-const uint16_t PROGMEM combo_ry[] = { KC_R, KC_Y, COMBO_END };
-const uint16_t PROGMEM combo_uy[] = { KC_U, KC_Y, COMBO_END };
-
-const uint16_t PROGMEM combo_zx[] = { KC_Z, KC_X, COMBO_END };
-const uint16_t PROGMEM combo_xc[] = { KC_X, KC_C, COMBO_END };
-const uint16_t PROGMEM combo_cv[] = { KC_C, KC_V, COMBO_END };
-const uint16_t PROGMEM combo_zv[] = { KC_Z, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_C[] = { KC_QUOT, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_D[] = { KC_QUOT, KC_D, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_H[] = { KC_QUOT, KC_H, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_R[] = { KC_QUOT, KC_R, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_S[] = { KC_QUOT, KC_S, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_T[] = { KC_QUOT, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_W[] = { KC_QUOT, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_Y[] = { KC_QUOT, KC_Y, COMBO_END };
+const uint16_t PROGMEM combo_SLSH_F[] = { KC_SLSH, KC_F, COMBO_END };
+const uint16_t PROGMEM combo_SLSH_H[] = { KC_SLSH, KC_H, COMBO_END };
+const uint16_t PROGMEM combo_SLSH_S[] = { KC_SLSH, KC_S, COMBO_END };
+const uint16_t PROGMEM combo_TAB_B[] = { KC_TAB, KC_B, COMBO_END };
+const uint16_t PROGMEM combo_TAB_C[] = { KC_TAB, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_TAB_D[] = { KC_TAB, KC_D, COMBO_END };
+const uint16_t PROGMEM combo_TAB_G[] = { KC_TAB, KC_G, COMBO_END };
+const uint16_t PROGMEM combo_TAB_I[] = { KC_TAB, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_TAB_L[] = { KC_TAB, KC_L, COMBO_END };
+const uint16_t PROGMEM combo_TAB_U[] = { KC_TAB, KC_U, COMBO_END };
+const uint16_t PROGMEM combo_A_B[] = { KC_A, KC_B, COMBO_END };
+const uint16_t PROGMEM combo_A_K[] = { KC_A, KC_K, COMBO_END };
+const uint16_t PROGMEM combo_A_M[] = { KC_A, KC_M, COMBO_END };
+const uint16_t PROGMEM combo_A_N[] = { KC_A, KC_N, COMBO_END };
+const uint16_t PROGMEM combo_A_T[] = { KC_A, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_A_W[] = { KC_A, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_B_C[] = { KC_B, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_C_W[] = { KC_C, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_D_L[] = { KC_D, KC_L, COMBO_END };
+const uint16_t PROGMEM combo_E_G[] = { KC_E, KC_G, COMBO_END };
+const uint16_t PROGMEM combo_E_I[] = { KC_E, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_H_T[] = { KC_H, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_H_V[] = { KC_H, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_I_O[] = { KC_I, KC_O, COMBO_END };
+const uint16_t PROGMEM combo_I_T[] = { KC_I, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_I_W[] = { KC_I, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_K_M[] = { KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM combo_L_T[] = { KC_L, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_L_W[] = { KC_L, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_M_T[] = { KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_N_T[] = { KC_N, KC_T, COMBO_END };
+const uint16_t PROGMEM combo_O_W[] = { KC_O, KC_W, COMBO_END };
+const uint16_t PROGMEM combo_R_U[] = { KC_R, KC_U, COMBO_END };
+const uint16_t PROGMEM combo_R_Y[] = { KC_R, KC_Y, COMBO_END };
+const uint16_t PROGMEM combo_U_Y[] = { KC_U, KC_Y, COMBO_END };
+const uint16_t PROGMEM combo_Z_X[] = { KC_Z, KC_X, COMBO_END };
+const uint16_t PROGMEM combo_X_C[] = { KC_X, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_C_V[] = { KC_C, KC_V, COMBO_END };
+const uint16_t PROGMEM combo_Z_V[] = { KC_Z, KC_V, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
-  [MY_COMBO_QUOT_C] = COMBO_ACTION(combo_quot_c),
-  [MY_COMBO_QUOT_D] = COMBO_ACTION(combo_quot_d),
-  [MY_COMBO_QUOT_H] = COMBO_ACTION(combo_quot_h),
-  [MY_COMBO_QUOT_R] = COMBO_ACTION(combo_quot_r),
-  [MY_COMBO_QUOT_S] = COMBO_ACTION(combo_quot_s),
-  [MY_COMBO_QUOT_T] = COMBO_ACTION(combo_quot_t),
-  [MY_COMBO_QUOT_W] = COMBO_ACTION(combo_quot_w),
-  [MY_COMBO_QUOT_Y] = COMBO_ACTION(combo_quot_y),
-  [MY_COMBO_SLSH_F] = COMBO_ACTION(combo_slsh_f),
-  [MY_COMBO_SLSH_H] = COMBO_ACTION(combo_slsh_h),
-  [MY_COMBO_SLSH_S] = COMBO_ACTION(combo_slsh_s),
-  [MY_COMBO_TAB_B] = COMBO_ACTION(combo_tab_b),
-  [MY_COMBO_TAB_C] = COMBO_ACTION(combo_tab_c),
-  [MY_COMBO_TAB_D] = COMBO_ACTION(combo_tab_d),
-  [MY_COMBO_TAB_G] = COMBO_ACTION(combo_tab_g),
-  [MY_COMBO_TAB_I] = COMBO_ACTION(combo_tab_i),
-  [MY_COMBO_TAB_L] = COMBO_ACTION(combo_tab_l),
-  [MY_COMBO_TAB_U] = COMBO_ACTION(combo_tab_u),
-  [MY_COMBO_AB] = COMBO_ACTION(combo_ab),
-  [MY_COMBO_AK] = COMBO_ACTION(combo_ak),
-  [MY_COMBO_AM] = COMBO_ACTION(combo_am),
-  [MY_COMBO_AN] = COMBO_ACTION(combo_an),
-  [MY_COMBO_AT] = COMBO_ACTION(combo_at),
-  [MY_COMBO_AW] = COMBO_ACTION(combo_aw),
-  [MY_COMBO_BC] = COMBO_ACTION(combo_bc),
-  [MY_COMBO_CW] = COMBO_ACTION(combo_cw),
-  [MY_COMBO_DL] = COMBO_ACTION(combo_dl),
-  [MY_COMBO_EG] = COMBO_ACTION(combo_eg),
-  [MY_COMBO_EI] = COMBO_ACTION(combo_ei),
-  [MY_COMBO_HT] = COMBO_ACTION(combo_ht),
-  [MY_COMBO_HV] = COMBO_ACTION(combo_hv),
-  [MY_COMBO_IO] = COMBO_ACTION(combo_io),
-  [MY_COMBO_IT] = COMBO_ACTION(combo_it),
-  [MY_COMBO_IW] = COMBO_ACTION(combo_iw),
-  [MY_COMBO_KM] = COMBO_ACTION(combo_km),
-  [MY_COMBO_LT] = COMBO_ACTION(combo_lt),
-  [MY_COMBO_LW] = COMBO_ACTION(combo_lw),
-  [MY_COMBO_MT] = COMBO_ACTION(combo_mt),
-  [MY_COMBO_NT] = COMBO_ACTION(combo_nt),
-  [MY_COMBO_OW] = COMBO_ACTION(combo_ow),
-  [MY_COMBO_RU] = COMBO_ACTION(combo_ru),
-  [MY_COMBO_RY] = COMBO_ACTION(combo_ry),
-  [MY_COMBO_UY] = COMBO_ACTION(combo_uy),
-  COMBO(combo_zx, KC_CUT),
-  COMBO(combo_xc, KC_COPY),
-  COMBO(combo_cv, KC_PASTE),
-  COMBO(combo_zv, KC_UNDO),
+  [MY_COMBO_QUOT_C] = COMBO_ACTION(combo_QUOT_C),
+  [MY_COMBO_QUOT_D] = COMBO_ACTION(combo_QUOT_D),
+  [MY_COMBO_QUOT_H] = COMBO_ACTION(combo_QUOT_H),
+  [MY_COMBO_QUOT_R] = COMBO_ACTION(combo_QUOT_R),
+  [MY_COMBO_QUOT_S] = COMBO_ACTION(combo_QUOT_S),
+  [MY_COMBO_QUOT_T] = COMBO_ACTION(combo_QUOT_T),
+  [MY_COMBO_QUOT_W] = COMBO_ACTION(combo_QUOT_W),
+  [MY_COMBO_QUOT_Y] = COMBO_ACTION(combo_QUOT_Y),
+  [MY_COMBO_SLSH_F] = COMBO_ACTION(combo_SLSH_F),
+  [MY_COMBO_SLSH_H] = COMBO_ACTION(combo_SLSH_H),
+  [MY_COMBO_SLSH_S] = COMBO_ACTION(combo_SLSH_S),
+  [MY_COMBO_TAB_B] = COMBO_ACTION(combo_TAB_B),
+  [MY_COMBO_TAB_C] = COMBO_ACTION(combo_TAB_C),
+  [MY_COMBO_TAB_D] = COMBO_ACTION(combo_TAB_D),
+  [MY_COMBO_TAB_G] = COMBO_ACTION(combo_TAB_G),
+  [MY_COMBO_TAB_I] = COMBO_ACTION(combo_TAB_I),
+  [MY_COMBO_TAB_L] = COMBO_ACTION(combo_TAB_L),
+  [MY_COMBO_TAB_U] = COMBO_ACTION(combo_TAB_U),
+  [MY_COMBO_A_B] = COMBO_ACTION(combo_A_B),
+  [MY_COMBO_A_K] = COMBO_ACTION(combo_A_K),
+  [MY_COMBO_A_M] = COMBO_ACTION(combo_A_M),
+  [MY_COMBO_A_N] = COMBO_ACTION(combo_A_N),
+  [MY_COMBO_A_T] = COMBO_ACTION(combo_A_T),
+  [MY_COMBO_A_W] = COMBO_ACTION(combo_A_W),
+  [MY_COMBO_B_C] = COMBO_ACTION(combo_B_C),
+  [MY_COMBO_C_W] = COMBO_ACTION(combo_C_W),
+  [MY_COMBO_D_L] = COMBO_ACTION(combo_D_L),
+  [MY_COMBO_E_G] = COMBO_ACTION(combo_E_G),
+  [MY_COMBO_E_I] = COMBO_ACTION(combo_E_I),
+  [MY_COMBO_H_T] = COMBO_ACTION(combo_H_T),
+  [MY_COMBO_H_V] = COMBO_ACTION(combo_H_V),
+  [MY_COMBO_I_O] = COMBO_ACTION(combo_I_O),
+  [MY_COMBO_I_T] = COMBO_ACTION(combo_I_T),
+  [MY_COMBO_I_W] = COMBO_ACTION(combo_I_W),
+  [MY_COMBO_K_M] = COMBO_ACTION(combo_K_M),
+  [MY_COMBO_L_T] = COMBO_ACTION(combo_L_T),
+  [MY_COMBO_L_W] = COMBO_ACTION(combo_L_W),
+  [MY_COMBO_M_T] = COMBO_ACTION(combo_M_T),
+  [MY_COMBO_N_T] = COMBO_ACTION(combo_N_T),
+  [MY_COMBO_O_W] = COMBO_ACTION(combo_O_W),
+  [MY_COMBO_R_U] = COMBO_ACTION(combo_R_U),
+  [MY_COMBO_R_Y] = COMBO_ACTION(combo_R_Y),
+  [MY_COMBO_U_Y] = COMBO_ACTION(combo_U_Y),
+  COMBO(combo_Z_X, KC_CUT),
+  COMBO(combo_X_C, KC_COPY),
+  COMBO(combo_C_V, KC_PASTE),
+  COMBO(combo_Z_V, KC_UNDO),
 };
 
 #define MODS_SHIFT (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT))
@@ -269,127 +268,127 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
         SEND_STRING("__" SS_TAP(X_LEFT));
       }
       break;
-    case MY_COMBO_AB:
+    case MY_COMBO_A_B:
       if (pressed) {
         SEND_CAP_STRING("about ", "About ");
       }
       break;
-    case MY_COMBO_AK:
+    case MY_COMBO_A_K:
       if (pressed) {
         SEND_STRING("a.k.a. ");
       }
       break;
-    case MY_COMBO_AM:
+    case MY_COMBO_A_M:
       if (pressed) {
         SEND_STRING("&");
       }
       break;
-    case MY_COMBO_AN:
+    case MY_COMBO_A_N:
       if (pressed) {
         SEND_CAP_STRING("and ", "And ");
       }
       break;
-    case MY_COMBO_AT:
+    case MY_COMBO_A_T:
       if (pressed) {
         SEND_STRING("@");
       }
       break;
-    case MY_COMBO_AW:
+    case MY_COMBO_A_W:
       if (pressed) {
         SEND_CAP_STRING("what ", "What ");
       }
       break;
-    case MY_COMBO_BC:
+    case MY_COMBO_B_C:
       if (pressed) {
         SEND_CAP_STRING("because ", "Because ");
       }
       break;
-    case MY_COMBO_CW:
+    case MY_COMBO_C_W:
       if (pressed) {
         SEND_CAP_STRING("which ", "Which ");
       }
       break;
-    case MY_COMBO_DL:
+    case MY_COMBO_D_L:
       if (pressed) {
         SEND_CAP_STRING("would ", "Would ");
       }
       break;
-    case MY_COMBO_EG:
+    case MY_COMBO_E_G:
       if (pressed) {
         SEND_STRING("e.g., ");
       }
       break;
-    case MY_COMBO_EI:
+    case MY_COMBO_E_I:
       if (pressed) {
         SEND_STRING("i.e., ");
       }
       break;
-    case MY_COMBO_HT:
+    case MY_COMBO_H_T:
       if (pressed) {
         SEND_CAP_STRING("the ", "The ");
       }
       break;
-    case MY_COMBO_HV:
+    case MY_COMBO_H_V:
       if (pressed) {
         SEND_CAP_STRING("have ", "Have ");
       }
       break;
-    case MY_COMBO_IO:
+    case MY_COMBO_I_O:
       if (pressed) {
         SEND_STRING("tion "); // Suffix
       }
       break;
-    case MY_COMBO_IT:
+    case MY_COMBO_I_T:
       if (pressed) {
         SEND_CAP_STRING("this ", "This ");
       }
       break;
-    case MY_COMBO_IW:
+    case MY_COMBO_I_W:
       if (pressed) {
         SEND_CAP_STRING("with ", "With ");
       }
       break;
-    case MY_COMBO_KM:
+    case MY_COMBO_K_M:
       if (pressed) {
         SEND_CAP_STRING("make ", "Make ");
       }
       break;
-    case MY_COMBO_LT:
+    case MY_COMBO_L_T:
       if (pressed) {
         SEND_CAP_STRING("until ", "Until ");
       }
       break;
-    case MY_COMBO_LW:
+    case MY_COMBO_L_W:
       if (pressed) {
         SEND_CAP_STRING("will ", "Will ");
       }
       break;
-    case MY_COMBO_MT:
+    case MY_COMBO_M_T:
       if (pressed) {
         SEND_STRING("ment "); // Suffix
       }
       break;
-    case MY_COMBO_NT:
+    case MY_COMBO_N_T:
       if (pressed) {
         leader_activate_or_cancel();
       }
       break;
-    case MY_COMBO_OW:
+    case MY_COMBO_O_W:
       if (pressed) {
         SEND_CAP_STRING("without ", "Without ");
       }
       break;
-    case MY_COMBO_RU:
+    case MY_COMBO_R_U:
       if (pressed) {
         SEND_CAP_STRING("you're ", "You're ");
       }
       break;
-    case MY_COMBO_RY:
+    case MY_COMBO_R_Y:
       if (pressed) {
         SEND_CAP_STRING("your ", "Your ");
       }
       break;
-    case MY_COMBO_UY:
+    case MY_COMBO_U_Y:
       if (pressed) {
         SEND_CAP_STRING("you ", "You ");
       }
