@@ -29,6 +29,13 @@ enum combo_events {
   MY_COMBO_SLSH_F,
   MY_COMBO_SLSH_H,
   MY_COMBO_SLSH_S,
+  MY_COMBO_TAB_B,
+  MY_COMBO_TAB_C,
+  MY_COMBO_TAB_D,
+  MY_COMBO_TAB_G,
+  MY_COMBO_TAB_I,
+  MY_COMBO_TAB_L,
+  MY_COMBO_TAB_U,
   MY_COMBO_AB,
   MY_COMBO_AK,
   MY_COMBO_AM,
@@ -67,6 +74,13 @@ const uint16_t PROGMEM combo_quot_s[] = { KC_QUOT, KC_S, COMBO_END };
 const uint16_t PROGMEM combo_quot_t[] = { KC_QUOT, KC_T, COMBO_END };
 const uint16_t PROGMEM combo_quot_w[] = { KC_QUOT, KC_W, COMBO_END };
 const uint16_t PROGMEM combo_quot_y[] = { KC_QUOT, KC_Y, COMBO_END };
+const uint16_t PROGMEM combo_tab_b[] = { KC_TAB, KC_B, COMBO_END };
+const uint16_t PROGMEM combo_tab_c[] = { KC_TAB, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_tab_d[] = { KC_TAB, KC_D, COMBO_END };
+const uint16_t PROGMEM combo_tab_g[] = { KC_TAB, KC_G, COMBO_END };
+const uint16_t PROGMEM combo_tab_i[] = { KC_TAB, KC_I, COMBO_END };
+const uint16_t PROGMEM combo_tab_l[] = { KC_TAB, KC_L, COMBO_END };
+const uint16_t PROGMEM combo_tab_u[] = { KC_TAB, KC_U, COMBO_END };
 const uint16_t PROGMEM combo_ab[] = { KC_A, KC_B, COMBO_END };
 const uint16_t PROGMEM combo_ak[] = { KC_A, KC_K, COMBO_END };
 const uint16_t PROGMEM combo_am[] = { KC_A, KC_M, COMBO_END };
@@ -110,6 +124,13 @@ combo_t key_combos[COMBO_COUNT] = {
   [MY_COMBO_SLSH_F] = COMBO_ACTION(combo_slsh_f),
   [MY_COMBO_SLSH_H] = COMBO_ACTION(combo_slsh_h),
   [MY_COMBO_SLSH_S] = COMBO_ACTION(combo_slsh_s),
+  [MY_COMBO_TAB_B] = COMBO_ACTION(combo_tab_b),
+  [MY_COMBO_TAB_C] = COMBO_ACTION(combo_tab_c),
+  [MY_COMBO_TAB_D] = COMBO_ACTION(combo_tab_d),
+  [MY_COMBO_TAB_G] = COMBO_ACTION(combo_tab_g),
+  [MY_COMBO_TAB_I] = COMBO_ACTION(combo_tab_i),
+  [MY_COMBO_TAB_L] = COMBO_ACTION(combo_tab_l),
+  [MY_COMBO_TAB_U] = COMBO_ACTION(combo_tab_u),
   [MY_COMBO_AB] = COMBO_ACTION(combo_ab),
   [MY_COMBO_AK] = COMBO_ACTION(combo_ak),
   [MY_COMBO_AM] = COMBO_ACTION(combo_am),
@@ -204,6 +225,48 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
     case MY_COMBO_SLSH_S:
       if (pressed) {
         SEND_CAP_STRING("https://", "HTTPS ");
+      }
+      break;
+    case MY_COMBO_TAB_B:
+      if (pressed) {
+        // Markdown strong emphasis/bold
+        SEND_STRING("****" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      }
+      break;
+    case MY_COMBO_TAB_C:
+      if (pressed) {
+        // Markdown list item with checkbox
+        SEND_STRING("- [ ] ");
+      }
+      break;
+    case MY_COMBO_TAB_D:
+      if (pressed) {
+        // Markdown deletion
+        SEND_STRING("~~~~" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      }
+      break;
+    case MY_COMBO_TAB_G:
+      if (pressed) {
+        // Markdown image
+        SEND_STRING("![]()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      }
+      break;
+    case MY_COMBO_TAB_I:
+      if (pressed) {
+        // Markdown emphasis/italic
+        SEND_STRING("**" SS_TAP(X_LEFT));
+      }
+      break;
+    case MY_COMBO_TAB_L:
+      if (pressed) {
+        // Markdown link
+        SEND_STRING("[]()" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+      }
+      break;
+    case MY_COMBO_TAB_U:
+      if (pressed) {
+        // Markdown emphasis/italic
+        SEND_STRING("__" SS_TAP(X_LEFT));
       }
       break;
     case MY_COMBO_AB:
