@@ -8,6 +8,9 @@
 - keys: [KC_QUOT, KC_H]
   action: |
     SEND_CAP_STRING("hasn't ", "Hasn't ");
+- keys: [KC_QUOT, KC_O]
+  action: |
+    SEND_CAP_STRING("won't ", "Won't ");
 - keys: [KC_QUOT, KC_R]
   action: |
     SEND_CAP_STRING("aren't ", "Aren't ");
@@ -19,7 +22,7 @@
     SEND_CAP_STRING("it's ", "It's ");
 - keys: [KC_QUOT, KC_W]
   action: |
-    SEND_CAP_STRING("won't ", "Won't ");
+    SEND_CAP_STRING("wasn't ", "Wasn't ");
 - keys: [KC_QUOT, KC_Y]
   action: |
     SEND_CAP_STRING("you're ", "You're ");

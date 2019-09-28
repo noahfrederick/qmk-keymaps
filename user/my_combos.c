@@ -21,6 +21,7 @@ enum combo_events {
   MY_COMBO_QUOT_C,
   MY_COMBO_QUOT_D,
   MY_COMBO_QUOT_H,
+  MY_COMBO_QUOT_O,
   MY_COMBO_QUOT_R,
   MY_COMBO_QUOT_S,
   MY_COMBO_QUOT_T,
@@ -66,6 +67,7 @@ enum combo_events {
 const uint16_t PROGMEM combo_QUOT_C[] = { KC_QUOT, KC_C, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_D[] = { KC_QUOT, KC_D, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_H[] = { KC_QUOT, KC_H, COMBO_END };
+const uint16_t PROGMEM combo_QUOT_O[] = { KC_QUOT, KC_O, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_R[] = { KC_QUOT, KC_R, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_S[] = { KC_QUOT, KC_S, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_T[] = { KC_QUOT, KC_T, COMBO_END };
@@ -115,6 +117,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [MY_COMBO_QUOT_C] = COMBO_ACTION(combo_QUOT_C),
   [MY_COMBO_QUOT_D] = COMBO_ACTION(combo_QUOT_D),
   [MY_COMBO_QUOT_H] = COMBO_ACTION(combo_QUOT_H),
+  [MY_COMBO_QUOT_O] = COMBO_ACTION(combo_QUOT_O),
   [MY_COMBO_QUOT_R] = COMBO_ACTION(combo_QUOT_R),
   [MY_COMBO_QUOT_S] = COMBO_ACTION(combo_QUOT_S),
   [MY_COMBO_QUOT_T] = COMBO_ACTION(combo_QUOT_T),
@@ -186,6 +189,11 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
         SEND_CAP_STRING("hasn't ", "Hasn't ");
       }
       break;
+    case MY_COMBO_QUOT_O:
+      if (pressed) {
+        SEND_CAP_STRING("won't ", "Won't ");
+      }
+      break;
     case MY_COMBO_QUOT_R:
       if (pressed) {
         SEND_CAP_STRING("aren't ", "Aren't ");
@@ -203,7 +211,7 @@ void process_combo_event(uint8_t combo_index, bool pressed) {
       break;
     case MY_COMBO_QUOT_W:
       if (pressed) {
-        SEND_CAP_STRING("won't ", "Won't ");
+        SEND_CAP_STRING("wasn't ", "Wasn't ");
       }
       break;
     case MY_COMBO_QUOT_Y:
