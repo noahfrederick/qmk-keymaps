@@ -2,6 +2,7 @@ require 'fileutils'
 
 USERNAME  = 'my'
 KEYBOARDS = {
+  'bm16s'         => [nil],
   'kbdfans/kbd4x' => [nil],
   'georgi'        => [nil],
   'planck'        => ['rev3', 'rev4', 'rev5', 'light'],
