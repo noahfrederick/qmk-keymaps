@@ -1,4 +1,16 @@
 ---
+- keys: [KC_COMM, KC_C]
+  action: |
+    SEND_STRING("Complete: " SS_TAP(X_PASTE));
+- keys: [KC_COMM, KC_M]
+  action: |
+    SEND_CAP_STRING("meeting", "Meeting");
+- keys: [KC_COMM, KC_P]
+  action: |
+    SEND_CAP_STRING("project management", "Project management");
+- keys: [KC_DOT, KC_SLSH]
+  action: |
+    SEND_STRING("</");
 - keys: [KC_QUOT, KC_C]
   action: |
     SEND_CAP_STRING("can't ", "Can't ");

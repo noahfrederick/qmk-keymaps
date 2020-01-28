@@ -20,4 +20,4 @@
 #define COMBO_TERM 50
 
 // Size of combo_events enum.
-#define COMBO_COUNT 48
+#define COMBO_COUNT 52

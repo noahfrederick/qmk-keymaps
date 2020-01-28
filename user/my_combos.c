@@ -18,6 +18,10 @@
 #include "my_leader.h"
 
 enum combo_events {
+  MY_COMBO_COMM_C,
+  MY_COMBO_COMM_M,
+  MY_COMBO_COMM_P,
+  MY_COMBO_DOT_SLSH,
   MY_COMBO_QUOT_C,
   MY_COMBO_QUOT_D,
   MY_COMBO_QUOT_H,
@@ -64,6 +68,10 @@ enum combo_events {
   MY_COMBO_U_Y,
 };
 
+const uint16_t PROGMEM combo_COMM_C[] = { KC_COMM, KC_C, COMBO_END };
+const uint16_t PROGMEM combo_COMM_M[] = { KC_COMM, KC_M, COMBO_END };
+const uint16_t PROGMEM combo_COMM_P[] = { KC_COMM, KC_P, COMBO_END };
+const uint16_t PROGMEM combo_DOT_SLSH[] = { KC_DOT, KC_SLSH, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_C[] = { KC_QUOT, KC_C, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_D[] = { KC_QUOT, KC_D, COMBO_END };
 const uint16_t PROGMEM combo_QUOT_H[] = { KC_QUOT, KC_H, COMBO_END };
@@ -114,6 +122,10 @@ const uint16_t PROGMEM combo_C_V[] = { KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM combo_Z_V[] = { KC_Z, KC_V, COMBO_END };
 
 combo_t key_combos[COMBO_COUNT] = {
+  [MY_COMBO_COMM_C] = COMBO_ACTION(combo_COMM_C),
+  [MY_COMBO_COMM_M] = COMBO_ACTION(combo_COMM_M),
+  [MY_COMBO_COMM_P] = COMBO_ACTION(combo_COMM_P),
+  [MY_COMBO_DOT_SLSH] = COMBO_ACTION(combo_DOT_SLSH),
   [MY_COMBO_QUOT_C] = COMBO_ACTION(combo_QUOT_C),
   [MY_COMBO_QUOT_D] = COMBO_ACTION(combo_QUOT_D),
   [MY_COMBO_QUOT_H] = COMBO_ACTION(combo_QUOT_H),
@@ -174,6 +186,26 @@ combo_t key_combos[COMBO_COUNT] = {
 
 void process_combo_event(uint8_t combo_index, bool pressed) {
   switch(combo_index) {
+    case MY_COMBO_COMM_C:
+      if (pressed) {
+        SEND_STRING("Complete: " SS_TAP(X_PASTE));
+      }
+      break;
+    case MY_COMBO_COMM_M:
+      if (pressed) {
+        SEND_CAP_STRING("meeting", "Meeting");
+      }
+      break;
+    case MY_COMBO_COMM_P:
+      if (pressed) {
+        SEND_CAP_STRING("project management", "Project management");
+      }
+      break;
+    case MY_COMBO_DOT_SLSH:
+      if (pressed) {
+        SEND_STRING("</");
+      }
+      break;
     case MY_COMBO_QUOT_C:
       if (pressed) {
         SEND_CAP_STRING("can't ", "Can't ");
