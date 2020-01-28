@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_QUOT,
     CTL_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, CTL_ENT,
     KC_LSPO, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_RSPC,
-    GUI_L,   HYPER_L, KC_LALT, KC_LGUI, LOWER, LT(NAV_LAYER, KC_SPC), RAISE,  KC_RGUI, KC_RALT, HYPER_R, GUI_R
+    GUI_L,   HYPER_L, KC_LALT, KC_LGUI, LOWER,   NAV_SPC,          RAISE,   KC_RGUI, KC_RALT, HYPER_R, GUI_R
   ),
 
   /* Base layer (Colemak)
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, __________________NAV_L1___________________, __________________NAV_R1___________________, XXXXXXX,
     _______, __________________NAV_L2___________________, __________________NAV_R2___________________, _______,
     _______, __________________NAV_L3___________________, __________________NAV_R3___________________, _______,
-    _______, _______, _______, _______, XXXXXXX, LT(NAV_LAYER, KC_SPC), XXXXXXX, _______, _______, _______, _______
+    _______, _______, _______, _______, XXXXXXX, NAV_SPC,          XXXXXXX, _______, _______, _______, _______
   ),
 
   /* GUI (window management/mouse/media controls) layer

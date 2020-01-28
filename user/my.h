@@ -72,6 +72,7 @@ enum user_keycodes {
 #define CAPITAL OSM(MOD_LSFT)
 
 #define NAV_BSP LT(NAV_LAYER, KC_BSPC)
+#define NAV_SPC LT(NAV_LAYER, KC_SPC)
 
 #define GUI_GRV LGUI(KC_GRV)
 
@@ -104,7 +105,12 @@ enum user_keycodes {
 #define LIT_INC BL_INC
 #endif
 
+// Macro strings
+#define MY_VERSION QMK_KEYBOARD "/" QMK_KEYMAP "@" QMK_VERSION " (" QMK_BUILDDATE ")"
+#define MY_MAKE "make " QMK_KEYBOARD ":" QMK_KEYMAP ":flash" SS_TAP(X_ENTER)
+
 // Alias layout macros that expand groups of keys.
+#define LAYOUT_georgi_wrapper(...) LAYOUT_georgi(__VA_ARGS__)
 #define LAYOUT_planck_grid_wrapper(...) LAYOUT_planck_grid(__VA_ARGS__)
 #define LAYOUT_planck_mit_wrapper(...) LAYOUT_planck_mit(__VA_ARGS__)
 #define LAYOUT_preonic_grid_wrapper(...) LAYOUT_preonic_grid(__VA_ARGS__)
@@ -125,12 +131,18 @@ enum user_keycodes {
 #define _________________COLEMAK_R2________________ KC_H,    KC_N,    KC_E,    KC_I,    KC_O
 #define _________________COLEMAK_R3________________ KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 
-#define _________________LOWER_L1__________________ KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
-#define _________________LOWER_L2__________________ KC_1,    KC_2,    KC_3,    KC_4,    KC_5
+#define _________________NUMBERS_L_________________ KC_1,    KC_2,    KC_3,    KC_4,    KC_5
+#define _________________NUMBERS_R_________________ KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+
+#define _________________FUNCTION_L________________ KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
+#define _________________FUNCTION_R________________ KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
+
+#define _________________LOWER_L1__________________ _________________FUNCTION_L________________
+#define _________________LOWER_L2__________________ _________________NUMBERS_L_________________
 #define _________________LOWER_L3__________________ KC_MINS, KC_EQL,  KC_GRV,  KC_BSLS, KC_COLN
 
-#define _________________LOWER_R1__________________ KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
-#define _________________LOWER_R2__________________ KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+#define _________________LOWER_R1__________________ _________________FUNCTION_R________________
+#define _________________LOWER_R2__________________ _________________NUMBERS_R_________________
 #define _________________LOWER_R3__________________ KC_NDSH, KC_MDSH, KC_COMM, KC_DOT,  KC_SLSH
 
 #define _________________RAISE_L1__________________ KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15
@@ -184,5 +196,5 @@ enum user_keycodes {
 #define __________VOLUME_________ KC_MUTE, KC_VOLD, KC_VOLU
 #define __________MEDIA__________ KC_MPRV, KC_MPLY, KC_MNXT
 
-#define __________________BASE_L0__________________ _________________LOWER_L1__________________
-#define __________________BASE_R0__________________ _________________LOWER_R1__________________
+#define __________________BASE_L0__________________ _________________FUNCTION_L________________
+#define __________________BASE_R0__________________ _________________FUNCTION_R________________

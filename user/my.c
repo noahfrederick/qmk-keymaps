@@ -100,12 +100,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case SEND_VERSION:
       if (record->event.pressed) {
-        SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP "@" QMK_VERSION " (" QMK_BUILDDATE ")");
+        SEND_STRING(MY_VERSION);
       }
       return false;
     case SEND_MAKE:
       if (record->event.pressed) {
-        SEND_STRING("make " QMK_KEYBOARD ":" QMK_KEYMAP ":flash" SS_TAP(X_ENTER));
+        SEND_STRING(MY_MAKE);
       }
       return false;
   }
