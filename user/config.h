@@ -33,3 +33,10 @@
 
 // Delay needed for rotary encoder to trigger media keys
 #define TAP_CODE_DELAY 10
+
+#ifdef TAPPING_TERM
+#undef TAPPING_TERM
+#endif
+
+#define TAPPING_TERM 150
+#define TAPPING_TERM_PER_KEY
