@@ -16,7 +16,7 @@
 
 #include QMK_KEYBOARD_H
 #include "sten.h"
-#include "keymap_steno.h"
+#include "my.h"
 #define IGNORE_MOD_TAP_INTERRUPT
 
 // Steno Layers
@@ -30,10 +30,11 @@
 // until the whole thing is sent.
 uint32_t stenoLayers[] = {NUM, SYM, MOVE, MEDIA, FUNCT};
 
-// QMK Layers
-#define STENO_LAYER   0
-#define GAMING        1
-#define GAMING_2      2
+enum keymap_layers {
+  GEORGI_BASE_LAYER,
+  GAMING_1_LAYER,
+  GAMING_2_LAYER
+};
 
 /* Keyboard Layout
  * ,-----------------------------------.    ,-----------------------------------.
@@ -57,12 +58,8 @@ uint32_t stenoLayers[] = {NUM, SYM, MOVE, MEDIA, FUNCT};
 // http://docs.gboards.ca
 uint32_t processQwerty(bool lookup) {
     // Special keys
-    P( RT  | RS  | RD  | RZ | LNO,      SEND_STRING(VERSION); SEND_STRING(__DATE__));
+    P( RT  | RS  | RD  | RZ | LNO,      SEND_STRING(MY_VERSION));
     P( LFT | LK  | LP  | LW,            REPEAT());
-
-    // Mouse Keys
-    /* P( LO  | LSD | LK,   CLICK_MOUSE(KC_MS_BTN2)); */
-    /* P( LO  | LR  | LW,   CLICK_MOUSE(KC_MS_BTN1)); */
 
 /* Function layer
  * ,-----------------------------------,    ,-----------------------------------,
@@ -70,7 +67,7 @@ uint32_t processQwerty(bool lookup) {
  * |     +     +     +     +     +     |    |     + F5  + F6  + F7  + F8  +     |
  * |     | FUNCTFUNC |     |     |     |    |     | F9  | F10 | F11 | F12 |     |
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
-*/
+ */
     P( FUNCT | RF,          SEND(KC_F1));
     P( FUNCT | RP,          SEND(KC_F2));
     P( FUNCT | RL,          SEND(KC_F3));
@@ -88,11 +85,11 @@ uint32_t processQwerty(bool lookup) {
 
 /* Movement layer
  * ,-----------------------------------,    ,-----------------------------------,
- * |     |     |     |     |     |     |    |     | <-  |  ↓  |  ↑  | ->  |     |
+ * |     |     |     |     |     |     |    |     |  ←  |  ↓  |  ↑  |  →  |     |
  * |     +     +     +     +     +     |    |     +     +     +     +     +     |
- * |     | MOVEMOVEM |     |     |     |    |     | Hm  | PgD | PgU | End |     |
+ * |     | MOVEMOVEM |     |     |     |    |     |Home |PgUp |PgDn | End |     |
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
-*/
+ */
     P( MOVE | RF,           SEND(KC_LEFT));
     P( MOVE | RP,           SEND(KC_DOWN));
     P( MOVE | RL,           SEND(KC_UP));
@@ -109,7 +106,7 @@ uint32_t processQwerty(bool lookup) {
  * |     +     +     +     +     +     |    |     +     +     +     +     +     |
  * |     | MEDIAMEDIAMEDIAMEDIAM |     |    |     |     |     |     |Mute | VolD|
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
-*/
+ */
     P( MEDIA | RF,          SEND(KC_MPRV));
     P( MEDIA | RP,          SEND(KC_MPLY));
     P( MEDIA | RL,          SEND(KC_MPLY));
@@ -125,7 +122,7 @@ uint32_t processQwerty(bool lookup) {
  * |     +     +  d  +  e  +  f  +     |    |  0  +  4  +  5  +  6  +  -  +     |
  * | NUM |     |     |     |     |     |    |     |  7  |  8  |  9  |  0  |     |
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
-*/
+ */
     P( NUM | LFT,           SEND(KC_A));
     P( NUM | LP,            SEND(KC_B));
     P( NUM | LH,            SEND(KC_C));
@@ -157,7 +154,7 @@ uint32_t processQwerty(bool lookup) {
  * |     +  ~  +  -  +  '  +  :  +  _  |    |  \  +  =  +  "  +  +  +  ?  +     |
  * |     |  !  |  @  |  #  |  $  |  %  |    |  |  |  ^  |  &  |  *  |  ?  | SYM |
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
-*/
+ */
     // Left hand
     P( SYM | LSU,           SEND(KC_GRV));
     P( SYM | LFT,           SEND(KC_LBRC));
@@ -198,15 +195,18 @@ uint32_t processQwerty(bool lookup) {
 
 /* Letters
  * ,-----------------------------------,    ,-----------------------------------,
- * |     |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  |  ;  | ctl |
- * +-----+- A -+- R -+- S -+- T -+- D -|    |- H -+- N -+- E -+- I -+- O -+-----|
- * | bsp |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  |  ,  |  .  |  /  | del |
+ * |Exit |  Q  |  W  |  F  |  P  |  G  |    |  J  |  L  |  U  |  Y  |  ;  |  '  |
+ * + Tab +- A -+- R -+- S -+- T -+- D -|    |- H -+- N -+- E -+- I -+- O -+Enter|
+ * | Esc |  Z  |  X  |  C  |  V  |  B  |    |  K  |  M  |  ,  |  .  |  /  |Enter|
  * `-----+-----+-----+-----+-----+-----'    `-----+-----+-----+-----+-----+-----'
  *                   ,-----------------,    .-----------------.
- *                   | alt |enter|shift|    |space| gui | alt |
+ *                   | GUI |Shift|Space|    |Bspc |LCtrl|LAlt |
  *                   `-----------------'    `-----------------'
-*/
+ */
     // Left hand
+    P( PWR,                 SEND(KC_ESC));
+    P( PWR | FN,            SEND(KC_TAB));
+
     P( LSU,                 SEND(KC_Q));
     P( LFT,                 SEND(KC_W));
     P( LP,                  SEND(KC_F));
@@ -244,60 +244,48 @@ uint32_t processQwerty(bool lookup) {
     P( RG,                  SEND(KC_DOT));
     P( RS,                  SEND(KC_SLSH));
 
+    P( RD,                  SEND(KC_QUOT));
+    P( RZ,                  SEND(KC_ENT));
+    P( RD | RZ,             SEND(KC_ENT));
+
     // Thumb Chords and modifiers
     //
-    PC( LNO | RNO | LA | RU,        SEND(KC_LCTL); SEND(KC_LSFT));
-    PC( LNO | LA  | RE,             SEND(KC_LCTL); SEND(KC_LSFT); SEND(KC_LALT));
+    PC( LNO,                SEND(KC_LGUI));
+    PC( LA,                 SEND(KC_LSFT));
+    PC( LO,                 SEND(KC_SPC));
 
-    // overrides
-    P( PWR | LO,            SEND(KC_LSFT); SEND(KC_BSPC));
-    P( PWR | RD,            SEND(KC_LCTL); SEND(KC_BSPC));
-    P( RZ | RD,             SEND(KC_LCTL); SEND(KC_DEL));
-
-    PC( LNO | LA | LO,      SEND(KC_LSFT); SEND(KC_ESC));
-    PC( LA | LO,            SEND(KC_ESC));
-    PC( LNO,                SEND(KC_LALT));
-    PC( LA,                 SEND(KC_ENT));
-    PC( LO,                 SEND(KC_LSFT));
-
+    PC( RE,                 SEND(KC_BSPC));
+    PC( RU,                 SEND(KC_LCTL));
     PC( RNO,                SEND(KC_RALT));
-    PC( RE | RU,            SEND(KC_TAB));
-    PC( RE,                 SEND(KC_SPC));
-    PC( RU,                 SEND(KC_LGUI));
-
-    PC( PWR,                SEND(KC_BSPC));
-    PC( RD,                 SEND(KC_LCTL));
-    P( RZ,                  SEND(KC_DEL));
 
     return 0;
 }
 
 // "Layers"
 // Steno layer should be first in your map.
-// When PWR | FN | ST3 | ST4 is pressed, the layer is increased to the next map. You must return to STENO_LAYER at the end.
-// If you need more space for chords, remove the two gaming layers.
-// Note: If using NO_ACTION_TAPPING, LT will not work!
+// When PWR | FN | ST3 | ST4 is pressed, the layer is increased to the next map.
+
+#define TO_BASE TO(GEORGI_BASE_LAYER)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    // Main layer, everything goes through here
-    [STENO_LAYER] = LAYOUT_georgi(
-        STN_FN,  STN_S1,  STN_TL,  STN_PL,  STN_HL,  STN_ST1,       STN_ST3, STN_FR,  STN_PR,  STN_LR,  STN_TR,  STN_DR,
-        STN_PWR, STN_S2,  STN_KL,  STN_WL,  STN_RL,  STN_ST2,       STN_ST4, STN_RR,  STN_BR,  STN_GR,  STN_SR,  STN_ZR,
-                                   STN_N1,  STN_A,   STN_O,         STN_E,   STN_U,   STN_N7
-    ),
-    // Gaming layer with Numpad, Very limited
-    [GAMING] = LAYOUT_georgi(
-        KC_LSFT, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                 KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_ENT,
-        KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_DQUO,
-                                   KC_LALT, KC_SPC,  LT(GAMING_2, KC_ENT), KC_DEL,  KC_ASTR, TO(STENO_LAYER)
+    [GEORGI_BASE_LAYER] = LAYOUT_georgi_wrapper(
+        STN_FN,  _________________STENO_L2__________________,       _________________STENO_R2___________________________,
+        STN_PWR, _________________STENO_L3__________________,       _________________STENO_R3___________________________,
+                                   STN_N1,  ____STENO_AO____,       ____STENO_EU____, STN_N7
     ),
 
-    [GAMING_2] = LAYOUT_georgi(
-        KC_LSFT, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-        KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,          KC_N,    KC_M,    KC_LT,   KC_GT,   KC_QUES, KC_RSFT,
-                                   KC_LALT, KC_SPC,  KC_ENT,        KC_DEL,  KC_ASTR, TO(STENO_LAYER)
+    [GAMING_1_LAYER] = LAYOUT_georgi_wrapper(
+        KC_TAB,  _________________QWERTY_L1_________________,       _________________QWERTY_R1_________________, KC_QUOT,
+        KC_ESC,  _________________QWERTY_L2_________________,       _________________QWERTY_R2_________________, KC_ENT,
+                        MO(GAMING_2_LAYER), KC_LSFT, KC_SPC,        KC_BSPC, KC_LCTL, KC_LALT
+    ),
+
+    [GAMING_2_LAYER] = LAYOUT_georgi_wrapper(
+        _______, _________________NUMBERS_L_________________,       _________________NUMBERS_R_________________, _______,
+        TO_BASE, _________________QWERTY_L3_________________,       _________________QWERTY_R3_________________, _______,
+                                   _______, _______, _______,       KC_DEL,  _______, _______
     )
 };
 
-size_t keymapsCount = sizeof(keymaps)/sizeof(keymaps[0]);
-size_t stenoLayerCount = sizeof(stenoLayers)/sizeof(stenoLayers[0]);
+size_t keymapsCount = sizeof(keymaps) / sizeof(keymaps[0]);
+size_t stenoLayerCount = sizeof(stenoLayers) / sizeof(stenoLayers[0]);
