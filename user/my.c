@@ -64,11 +64,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(QWERTY_LAYER);
+#ifdef COMBO_ENABLE
+        combo_disable();
+#endif
       }
       return false;
     case COLEMAK:
       if (record->event.pressed) {
         set_single_persistent_default_layer(COLEMAK_LAYER);
+#ifdef COMBO_ENABLE
+        combo_enable();
+#endif
       }
       return false;
     case STCH_EX:
